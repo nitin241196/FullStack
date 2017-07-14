@@ -1,6 +1,16 @@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+    $(".flip").click(function(){
+        $(".panel").slideToggle("slow");
+    });
+});
+</script>
 
 <style>
+@import url('https://fonts.googleapis.com/css?family=Dosis');
 tul {
+  font-family: 'Dosis', sans-serif;
   list-style-type: none;
     margin: 0;
     padding: 0;
@@ -10,6 +20,7 @@ tul {
     top:60px;
     height: 100%;
     overflow: auto;
+
 }
 tli {
   margin-bottom: 0px;
@@ -21,6 +32,7 @@ tli a {
     padding-left: 30px;
     margin-bottom: 0px;
     text-decoration: none;
+    border-bottom: 1px solid grey;
 }
 
 /* Change the link color on hover */
@@ -28,25 +40,33 @@ tli a:hover {
     background-color: #555;
     color: white;
 }
+b {
+  color: #61dafb;
+}
 /* Change the link color on hover */
+.flip {
+  color: red;
+    padding: 2px;
+    text-align: center;
+    background-color: #e5eecc;
+    border: solid 1px #c3c3c3;
+}
 
+.panel {
+    padding: 10px;
+    display: none;
+}
 </style>
 
 
-
-
 <% if current_user.ismanager==false && current_user.isemployee==false%>
-
 <button class="button button3"><%= link_to('   Logout', destroy_user_session_path, method: :delete  )%></button><br>
-
 <% end %>
-
 
   <!-- <a href="#home">Home</a>
   <li><a href="#news">News</a></li>
   <li><a href="#contact">Contact</a></li>
   <li><a href="#about">About</a></li> -->
-
 <tul>
 <% if current_user.ismanager==true %>
  <tli><%= link_to 'Add Your Employees', select_index_path %></tli><br>
@@ -61,51 +81,38 @@ tli a:hover {
 </tul>
 
   Hello <%= current_user.fullname%>
-   . Have a Good day.
 
 
-
-
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
 
 
 
     <% @todos.each do |todo| %>
     <div class="todos">
-
-
-      Content:  <td><%= todo.content %><br>
-
-      Deadline : <td><%= todo.deadline %><br>
-
-
-      TransferredTo => <td><%= todo.transferredto %>
-TransferredBy<= <td><%= todo.transferredby%><br>
-       AssignedTo => <%= todo.assignedto %>
-       AssignedBy <= <%= todo.assignedby%><br>
+                <b>Content: </b> <td><%= todo.content %><br>
+              <b>  Deadline : </b><td><%= todo.deadline %><br>
+          <div class="flip">Click for more option</div>
+              <div class='panel'>
+          <b>  TransferredTo :</b> <td><%= todo.transferredto %>
+                <b>    TransferredBy :</b> <td><%= todo.transferredby%><br>
+                  <b>    AssignedTo :     </b><%= todo.assignedto %>
+                    <b>  AssignedBy : </b><%= todo.assignedby%><br>
 
               <form action="/select/transfertask" method="POST">
                 <input type="text" name="transfertofullname">
                 <input type="hidden" name="todo" value="<%= todo.id %>">
                 <input type="submit" name="transfer" value="Transfer">
                 </form>
-  <form action="/select/assigntask" method="POST">
-      <input type="text" name="assigntoemail">
-      <input type="hidden" name="todo" value="<%= todo.id %>">
-      <input type="submit" name="assign" value="Assign">
-      </form>
+
+              <form action="/select/assigntask" method="POST">
+            <input type="text" name="assigntoemail">
+            <input type="hidden" name="todo" value="<%= todo.id %>">
+            <input type="submit" name="assign" value="Assign">
+            </form>
 
         <td><%= link_to 'Show', todo ,{:style=>'color:#FFFFFF;font-size:25px;text-decoration: none;', :class => "css_class"}%>
         <td><%= link_to 'Edit', edit_todo_path(todo) ,{:style=>'color:#FFFFFF;font-size:25px;text-decoration: none;', :class => "css_class"}%></td>
-      <button class="button button3">  <td><%= link_to 'Destroy', todo, method: :delete, data: { confirm: 'Are you sure?' } %></td></button><br>
+        <button class="button button3">  <td><%= link_to 'Destroy', todo, method: :delete, data: { confirm: 'Are you sure?' } %></td></button><br>
+   </div>
 </div>
 
     <% end %>

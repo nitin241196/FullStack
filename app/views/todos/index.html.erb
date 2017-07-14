@@ -109,8 +109,7 @@ b {
             <input type="submit" name="assign" value="Assign">
             </form>
 
-        <td><%= link_to 'Show', todo ,{:style=>'color:#FFFFFF;font-size:25px;text-decoration: none;', :class => "css_class"}%>
-        <td><%= link_to 'Edit', edit_todo_path(todo) ,{:style=>'color:#FFFFFF;font-size:25px;text-decoration: none;', :class => "css_class"}%></td>
+            <td><%= link_to 'Edit', edit_todo_path(todo) ,{:style=>'color:#FFFFFF;font-size:30px;padding-top:5px;text-decoration: none;margin-right:80%;', :class => "css_class"}%></td>
         <button class="button button3">  <td><%= link_to 'Destroy', todo, method: :delete, data: { confirm: 'Are you sure?' } %></td></button><br>
    </div>
 </div>

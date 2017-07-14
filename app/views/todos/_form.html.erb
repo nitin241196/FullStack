@@ -1,3 +1,6 @@
+
+
+
 <%= form_for(@todo) do |f| %>
   <% if @todo.errors.any? %>
     <div id="error_explanation">
@@ -10,8 +13,8 @@
       </ul>
     </div>
   <% end %>
-
-  <div class="field">
+<div class="todoForm">
+  <div class="textarea">
     <%= f.label :content %><br>
     <%= f.text_area :content %>
   </div>
@@ -21,12 +24,10 @@
     <%= f.datetime_select :deadline %>
   </div>
 
-  <div class="field">
-    <%= f.label :user_id %><br>
-    <%= f.text_field :user_id %>
-  </div>
+  
 
   <div class="actions">
     <%= f.submit %>
   </div>
+</div>
 <% end %>

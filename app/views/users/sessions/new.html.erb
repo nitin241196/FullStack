@@ -20,7 +20,6 @@
 ul {
     width: 100%;
     top:0;
-
     font-size: 22px;
     list-style-type: none;
     margin: 0;
@@ -33,8 +32,6 @@ ul {
 
 li {
     float: right;
-
-
 }
 
 li a {
@@ -54,10 +51,8 @@ li a:hover {
   background-color: #222;
 }
 .companydiv{
-  color: red;
   height: 400px;
   width: 100%;
-
   background-image: url("https://www.threadsol.com/assets/logo-4ffa8e6997c5baf97607f0d254c954b3.png");
    background-repeat: no-repeat;
     background-position: bottom;
@@ -66,11 +61,12 @@ li a:hover {
 </style>
 <ul>
   <li style="margin-left:15px;letter-spacing: 3px;float:left"><%= link_to "FullStack", new_session_path(resource_name) %></li>
-  <li style=""><%= link_to "Signup", new_registration_path(resource_name) %>
-</li>
+
 
   <li><a href="#about">About</a></li>
   <li><a href="#contact">Contact</a></li>
+  <li style=""><%= link_to "Signup", new_registration_path(resource_name) %>
+</li>
 </ul>
 
 

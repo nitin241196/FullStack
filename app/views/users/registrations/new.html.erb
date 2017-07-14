@@ -1,7 +1,7 @@
 <style>
 
 ul {
-  width: 100%;
+    width: 100%;
     top:0;
     position: fixed;
     font-size: 22px;
@@ -15,7 +15,7 @@ ul {
 }
 
 li {
-    float: left;
+    float: right;
 }
 
 li a {
@@ -47,7 +47,7 @@ li a:hover {
 </style>
 
 <ul>
-  <li style="margin-left:30px;letter-spacing: 3px; "><%= link_to "FullStack", new_session_path(resource_name) %></li>
+  <li style="margin-left:30px;letter-spacing: 3px; float:left;"><%= link_to "FullStack", new_session_path(resource_name) %></li>
   <li style=""><%= link_to "Signin", new_session_path(resource_name) %>
 </li>
 

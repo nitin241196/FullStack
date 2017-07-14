@@ -21,7 +21,60 @@
   }
   }
   </script>
-  
+  <style>
+
+  ul {
+      position: fixed;
+      width: 100%;
+      top:0;
+      font-size: 22px;
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      height: 60px;
+      overflow: hidden;
+      background-color: #222;
+      border-bottom: 1px solid grey;
+  }
+
+  li {
+      float: right;
+  }
+
+  li a {
+      display: block;
+      color: white;
+      text-align: center;
+      padding: 14px 16px;
+      text-decoration: none;
+  }
+
+  li a:hover {
+      background-color: #111;
+  }
+  .about{
+    height: 300px;
+    width: 100%;
+    background-color: #222;
+  }
+  .companydiv{
+    height: 400px;
+    width: 100%;
+    background-image: url("https://www.threadsol.com/assets/logo-4ffa8e6997c5baf97607f0d254c954b3.png");
+     background-repeat: no-repeat;
+      background-position: bottom;
+      background-attachment: fixed;
+  }
+  </style>
+  <ul>
+    <li style="margin-left:15px;letter-spacing: 3px;float:left"><a href="#about">FullStack</a></li>
+    <li><%= link_to('   Logout', destroy_user_session_path, method: :delete  )%></li>
+    
+  </li>
+  </ul>
+
+
+
 <%= yield %>
 
 </body>

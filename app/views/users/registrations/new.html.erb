@@ -1,8 +1,7 @@
 <style>
-.header{
-  width: 100%;
-}
+
 ul {
+  width: 100%;
     top:0;
     position: fixed;
     font-size: 22px;
@@ -10,7 +9,7 @@ ul {
     margin: 0;
     padding: 0;
     height: 60px;
-    overflow: hidden;
+
     background-color: #222;
     border-bottom: 1px solid grey;
 }
@@ -46,18 +45,16 @@ li a:hover {
     background-attachment: fixed;
 }
 </style>
-<div class="header">
-
 
 <ul>
-  <li style="margin-left:15px;letter-spacing: 3px; "><%= link_to "FullStack", new_session_path(resource_name) %></li>
-  <li style="margin-left:40%;"><%= link_to "Signin", new_session_path(resource_name) %>
+  <li style="margin-left:30px;letter-spacing: 3px; "><%= link_to "FullStack", new_session_path(resource_name) %></li>
+  <li style=""><%= link_to "Signin", new_session_path(resource_name) %>
 </li>
 
   <li><a href="#about">About</a></li>
   <li><a href="#contact">Contact</a></li>
 </ul>
-</div>
+
 <div class="border-form-div">
   <h2>Sign up</h2>
   <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>

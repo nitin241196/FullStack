@@ -18,8 +18,9 @@
 <style>
 
 ul {
-  top:0;
-  position: fixed;
+    width: 100%;
+    top:0;
+
     font-size: 22px;
     list-style-type: none;
     margin: 0;
@@ -31,7 +32,9 @@ ul {
 }
 
 li {
-    float: left;
+    float: right;
+
+
 }
 
 li a {
@@ -62,8 +65,8 @@ li a:hover {
 }
 </style>
 <ul>
-  <li style="margin-left:15px;letter-spacing: 3px; "><%= link_to "FullStack", new_session_path(resource_name) %></li>
-  <li style="margin-left:1100px;"><%= link_to "Signup", new_registration_path(resource_name) %>
+  <li style="margin-left:15px;letter-spacing: 3px;float:left"><%= link_to "FullStack", new_session_path(resource_name) %></li>
+  <li style=""><%= link_to "Signup", new_registration_path(resource_name) %>
 </li>
 
   <li><a href="#about">About</a></li>

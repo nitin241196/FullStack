@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Project</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+</head>
+<body>
+  <script type="text/javascript">
+  function myFunction(){
+  var pos = window.scrollY;
+  var id = setInterval(frame, 1);
+  function frame() {
+    if (pos <= 0) {
+       clearInterval(id);
+   } else {
+       pos-=10;
+         window.scrollTo(0, pos);
+   }
+  }
+  }
+  </script>
+  <div class="main">
+    <div style="font-size: 30px;padding-left:45px; letter-spacing: 3px; position:fixed;">FullStack</div>
+
+  </div>
+
+<%= yield %>
+
+</body>
+</html>

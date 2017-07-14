@@ -1,0 +1,10 @@
+<h1>Hi</h1>
+
+
+<% @users.try(:each) do |user| %>
+<%= user.email %>
+<form action="/select/transferred" method="POST">
+<input type="hidden" name="email" value="<%= user.email %>"><input type="submit" name="transfertasktomanager"value="<%= user.isemployee%>">
+</form>
+
+<% end %>

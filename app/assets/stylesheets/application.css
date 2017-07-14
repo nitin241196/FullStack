@@ -78,16 +78,13 @@ padding: 0;
 }
  .border-form-div {
 
-   width: 700px;
+   width: 60%;
    height: 300px;
-   color: #61dafb;;
-   padding-left: 70px;
-   padding-right: 25px;
-   padding-top: 80px;
-   padding-bottom:  50px;
-   margin: 0 auto 20px;
-   margin-top: 80px;
-   margin-bottom: 110px;
+   color: #61dafb;
+   margin-top: 90px;
+   padding-left: 60px;
+   margin-left: 20%;
+   margin-bottom: 0px;
    background-color:rgb(45, 45, 45);
    border: 1px solid #e5e5e5;
    -webkit-border-radius: 5px;

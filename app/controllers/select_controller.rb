@@ -41,26 +41,26 @@ def transfertask   #postmethod
 
 end
 
-def assigntask   #postmethod
-  fullname = params[:assigntofullname]
-  todoid =params[:todo]
-  todo=Todo.where(id: todoid).first
-  deadline=todo.deadline
-  todo.assignedto=fullname
-todo.assignedby=current_user.fullname
-  newuser= User.where(fullname: fullname).first
-  newtodo=Todo.new
-  newtodo.content=todo.content
-  newtodo.assignedto=fullname
-newtodo.assignedby=current_user.fullname
-  newtodo.deadline=todo.deadline
-  newtodo.user_id=newuser.id
-  new
-  newtodo.save
-  todo.save
-  return redirect_to '/todos'
+  def assigntask   #postmethod
+      fullname = params[:assigntofullname]
+      todoid =params[:todo]
+      todo=Todo.where(id: todoid).first
+      deadline=todo.deadline
+      todo.assignedto=fullname
+      todo.assignedby=current_user.fullname
+      newuser= User.where(fullname: fullname).first
+      newtodo=Todo.new
+      newtodo.content=todo.content
+      newtodo.assignedto=fullname
+      newtodo.assignedby=current_user.fullname
+      newtodo.deadline=todo.deadline
+      newtodo.user_id=newuser.id
 
-end
+      newtodo.save
+      todo.save
+      return redirect_to '/todos'
+
+    end
 
 
 # def transfertask   #postmethod

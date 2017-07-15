@@ -25,22 +25,19 @@ class SelectController < ApplicationController
 
 def transfertask   #postmethod
     fullname = params[:transfertofullname]
-  todoid =params[:todo]
-  todo=Todo.where(id: todoid).first
-
-  todo.transferredto=fullname
-  todo.transferredby=current_user.fullname
-
-
-  newuser= User.where(fullname: fullname).first
-  newtodo=Todo.new
-  newtodo.content=todo.content
-  newtodo.transferredto=fullname
-  newtodo.transferredby=current_user.fullname
-  newtodo.user_id=newuser.id
-  newtodo.save
-  todo.save
-  return redirect_to '/todos'
+    todoid =params[:todo]
+    todo=Todo.where(id: todoid).first
+    todo.transferredto=fullname
+    todo.transferredby=current_user.fullname
+    newuser= User.where(fullname: fullname).first
+    newtodo=Todo.new
+    newtodo.content=todo.content
+    newtodo.transferredto=fullname
+    newtodo.transferredby=current_user.fullname
+    newtodo.user_id=newuser.id
+    newtodo.save
+    todo.save
+    return redirect_to '/todos'
 
 end
 

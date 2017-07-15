@@ -3,19 +3,24 @@ class SelectController < ApplicationController
 
 
 
-  def index       #getmethod
-  if current_user.ismanager == true
-  @users = User.all.order("fullname ASC")
+      def index       #getmethod
+      if current_user.ismanager == true
+      @users = User.all.order("fullname ASC")
+      end
+    end
+
+    def listemployee
+      if current_user.isemployee
+    @users =User.all.order("fullname ASC ")
   end
-end
-def listemployee
-@users =User.all.order("fullname ASC ")
+    if current_user.ismanager
+      @users =User.where(managername: current_user.fullname).order("fullname ASC ")
+    end
+  end
 
-end
-def listmanager
-@users =User.all.order("fullname ASC ")
-
-end
+    def listmanager
+    @users =User.all.order("fullname ASC ")
+    end
 
 
 def transfertask   #postmethod
@@ -88,12 +93,15 @@ end
 		user = User.where(email: email).first
 
 			user.isemployee =!user.isemployee
+      if user.isemployee
       user.managername=current_user.fullname
+    else
+      user.managername=""
+    end
       puts user.managername
 			user.save
 			puts user.isemployee
 		return redirect_to '/select/index'
 	end
-
 
 end

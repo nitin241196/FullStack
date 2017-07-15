@@ -29,7 +29,7 @@ tli a {
   font-size: 20px;
     display: block;
     color: white;
-    padding-left: 30px;
+    padding-left: 50px;
     margin-bottom: 0px;
     text-decoration: none;
     border-bottom: 1px solid grey;
@@ -80,10 +80,6 @@ b {
 <tli><%= link_to 'New Todo', new_todo_path %></tli>
 </tul>
 
-  Hello <%= current_user.fullname%>
-
-
-
 
 
     <% @todos.each do |todo| %>
@@ -98,18 +94,18 @@ b {
                     <b>  AssignedBy : </b><%= todo.assignedby%><br>
 
               <form action="/select/transfertask" method="POST">
-                <input type="text" name="transfertofullname">
+                <input type="text" placeholder="Enter fullname"name="transfertofullname">
                 <input type="hidden" name="todo" value="<%= todo.id %>">
                 <input type="submit" name="transfer" value="Transfer">
                 </form>
 
               <form action="/select/assigntask" method="POST">
-            <input type="text" name="assigntoemail">
+            <input type="text" placeholder="Enter fullname" name="assigntoemail">
             <input type="hidden" name="todo" value="<%= todo.id %>">
             <input type="submit" name="assign" value="Assign">
             </form>
 
-            <td><%= link_to 'Edit', edit_todo_path(todo) ,{:style=>'color:#FFFFFF;font-size:30px;padding-top:5px;text-decoration: none;margin-right:80%;', :class => "css_class"}%></td>
+            <td><%= link_to 'Edit', edit_todo_path(todo) ,{:style=>'color:#FFFFFF;font-size:30px;padding-top:5px;text-decoration: none;margin-right:75%;', :class => "css_class"}%></td>
         <button class="button button3">  <td><%= link_to 'Destroy', todo, method: :delete, data: { confirm: 'Are you sure?' } %></td></button><br>
    </div>
 </div>

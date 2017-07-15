@@ -50,7 +50,8 @@
   }
 
   li a:hover {
-      background-color: #111;
+      background-color: #61dafb;
+      color: black;
   }
   .about{
     height: 300px;
@@ -67,9 +68,11 @@
   }
   </style>
   <ul>
-    <li style="margin-left:15px;letter-spacing: 3px;float:left"><a href="#about">FullStack</a></li>
+    <li style="padding-left:40px;letter-spacing: 3px;float:left"><%= link_to 'FullStack', todos_path %></li>
+
     <li><%= link_to('   Logout', destroy_user_session_path, method: :delete  )%></li>
-    
+    <li style="margin-right:40%;letter-spacing: 1px;float:right;color:white;padding-top:15px;">Hello! <%= current_user.try(:fullname) %></li>
+
   </li>
   </ul>
 

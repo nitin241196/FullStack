@@ -8,17 +8,18 @@
 <% if @users.nil? %>
 <% return "you are not authorized yet.Contact your manager or admin"  %>
 <% else %>
-<table style="width:80%;margin-left:10%;margin-top:40px; border: 1px solid black;background-color:white">
+<table style="width:80%;margin-left:10%;margin-top:40px; border: 2px solid black;background-color:white">
   <thead  style="border: 1px solid black;">
-    <tr>
+    <tr >
       <th style="width:30%;text-align:left;">Email</th>
       <th style="width:30%;text-align:left;">Name</th>
+      <th style="width:20%;text-align:left;">Manager</th>
       <th style="width:20%;text-align:left;">Status</th>
-      <th style="width:20%;">Manager</th>
+
       <th colspan="3"></th>
     </tr>
   </thead>
-   <tbody>
+   <tbody style="@import url('https://fonts.googleapis.com/css?family=Dosis');font-family: 'Dosis', sans-serif;">
 <% @users.each do |user| %>
 <% value=""%>
 <% if user.isemployee==true%>
@@ -29,13 +30,14 @@
 <% if user.ismanager %>
 <% else %>
 </tr>
-<td style="width:20%;text-align:left;"><%= user.email %></td>
-<td style="width:25%;text-align:left;"><%= user.try(:fullname) %></td>
-<td style="width:30%;text-align:left;"><form action="/select/done" method="POST">
+<td style="width:30%;text-align:left;"><%= user.email %></td>
+<td style="width:30%;text-align:left;"><%= user.try(:fullname) %></td>
+
+<td style="width:20%;margin-right:50px;"><%= user.try(:managername) %></td>
+<td style="width:20%;text-align:left;margin-right:0">
+  <form action="/select/done" method="POST">
 <input type="hidden" name="email" value="<%= user.email %>"><input type="submit" name="makeemployee"value="<%= value%>">
 </form><td>
-<td style="width:20%;text-align:left;"><%= user.try(:managername) %></td>
-
 
 </tr>
 

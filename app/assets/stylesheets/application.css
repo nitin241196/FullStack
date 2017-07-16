@@ -29,12 +29,14 @@
     height:  40px;
 
 }
+
 .button3 {
   text-decoration: none;
     background-color: white;
     color: black;
     border: 2px solid #61dafb;;
 }
+
 .todos{
 
     font-family: 'Nunito', sans-serif;
@@ -48,7 +50,7 @@
       margin-right: 5%;
       padding-left: 70px;
       padding-right: 25px;
-      padding-top: 0px;
+      padding-top: 10px;
       padding-bottom:  12px;
       border-bottom: 1px solid grey;
 

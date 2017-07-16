@@ -1,13 +1,6 @@
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script>
-$(document).ready(function(){
-    $(".flip").click(function(){
-        $(".panel").slideToggle("slow");
-    });
-});
-</script>
 
 <style>
+
 @import url('https://fonts.googleapis.com/css?family=Dosis');
 tul {
   font-family: 'Dosis', sans-serif;
@@ -44,18 +37,29 @@ b {
   color: #61dafb;
 }
 /* Change the link color on hover */
-.flip {
-  width: 150px;
-  color: red;
-    padding: 2px;
+button.accordion {
+    background-color: #eee;
+    color: #444;
+    cursor: pointer;
+    padding: 10px;
+    width: 14%;
+    border: none;
     text-align: center;
-    background-color: #e5eecc;
-    border: solid 1px #c3c3c3;
+    outline: none;
+    font-size: 20px;
+    transition: 0.4s;
 }
 
-.panel {
-    padding: 10px;
-    display: none;
+
+
+
+
+div.panel {
+    padding: 0 18px;
+    background-color: #333;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.2s ease-out;
 }
 </style>
 
@@ -87,8 +91,8 @@ b {
     <div class="todos">
                 <b>Content: </b> <td><%= todo.content %><br>
               <b>  Deadline : </b><td><%= todo.deadline %><br>
-          <div class="flip">More option</div>
-              <div class='panel'>
+                <button class="accordion">More Option</button>
+                    <div class="panel">
           <b>  TransferredTo :</b> <td><%= todo.transferredto %>
                 <b>    TransferredBy :</b> <td><%= todo.transferredby%><br>
                   <b>    AssignedTo :     </b><%= todo.assignedto %>
@@ -115,3 +119,20 @@ b {
     <button onclick="myFunction()" name="button" id="movetotop"> Move to Top</button>
 <div style="height:300px;width:100%;"></div>
 <br>
+
+<script>
+var acc = document.getElementsByClassName("accordion");
+var i;
+
+for (i = 0; i < acc.length; i++) {
+  acc[i].onclick = function() {
+    this.classList.toggle("active");
+    var panel = this.nextElementSibling;
+    if (panel.style.maxHeight){
+      panel.style.maxHeight = null;
+    } else {
+      panel.style.maxHeight = panel.scrollHeight + "px";
+    }
+  }
+}
+</script>

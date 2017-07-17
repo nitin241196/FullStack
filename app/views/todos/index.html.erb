@@ -90,7 +90,7 @@ div.panel {
     <% @todos.each do |todo| %>
     <div class="todos">
                 <b>Content: </b> <td><%= todo.content %><br>
-              <b>  Deadline : </b><td><%= todo.deadline %><br>
+              <b>  Deadline : </b><td><%= todo.deadline.strftime("%d/%m/%Y %I:%M%p") %><br>
                 <button class="accordion">More Option</button>
                     <div class="panel">
           <b>  TransferredTo :</b> <td><%= todo.transferredto %>

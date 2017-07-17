@@ -1,11 +1,12 @@
 class TodosController < ApplicationController
   before_action :set_todo, only: [:show, :edit, :update, :destroy]
   before_filter :authenticate_user!
+
   # GET /todos
   # GET /todos.json
   def index
     if current_user.isemployee==true || current_user.ismanager==true
-    @todos = Todo.where(user_id: current_user).order("deadline DESC")
+    @todos = Todo.where(user_id: current_user).order("deadline ASC")
   else
     render "_a"
   end

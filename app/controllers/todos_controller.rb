@@ -30,6 +30,7 @@ class TodosController < ApplicationController
   # POST /todos.json
   def create
     @todo = current_user.todos.build(todo_params)
+    
 
     respond_to do |format|
       if @todo.save

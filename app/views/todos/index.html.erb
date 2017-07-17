@@ -1,7 +1,8 @@
-
+ <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 <style>
 
 @import url('https://fonts.googleapis.com/css?family=Dosis');
+
 tul {
   font-family: 'Dosis', sans-serif;
   list-style-type: none;
@@ -55,12 +56,16 @@ button.accordion {
 
 
 div.panel {
+  margin-top: 10px;
+  border-radius: 5px;
     padding: 0 18px;
-    background-color: #333;
+    background-color: #081616;;
     max-height: 0;
     overflow: hidden;
     transition: max-height 0.2s ease-out;
 }
+
+
 </style>
 
 
@@ -90,33 +95,34 @@ div.panel {
     <% @todos.each do |todo| %>
     <div class="todos">
                 <b>Content: </b> <td><%= todo.content %><br>
-              <b>  Deadline : </b><td><%= todo.deadline.strftime("%d/%m/%Y %I:%M%p") %><br>
-                <button class="accordion">More Option</button>
+              <b>  Deadline : </b><td><%= todo.deadline.strftime("%a, %d %b %Y at %I:%M%p") %><br>
+                <button class="accordion">More Options</button>
                     <div class="panel">
-          <b>  TransferredTo :</b> <td><%= todo.transferredto %>
+          <b>  TransferredTo :</b> <td><%= todo.transferredto %><br>
                 <b>    TransferredBy :</b> <td><%= todo.transferredby%><br>
-                  <b>    AssignedTo :     </b><%= todo.assignedto %>
+                  <b>    AssignedTo :     </b><%= todo.assignedto %><br>
                     <b>  AssignedBy : </b><%= todo.assignedby%><br>
 
               <form action="/select/transfertask" method="POST">
                 <input type="text" placeholder="Enter fullname"name="transfertofullname">
                 <input type="hidden" name="todo" value="<%= todo.id %>">
-                <input type="submit" name="transfer" value="Transfer">
+              <a class="waves-effect waves-light btn">  <input type="submit" name="transfer" value="Transfer"></a>
                 </form>
 
               <form action="/select/assigntask" method="POST">
             <input type="text" placeholder="Enter fullname" name="assigntofullname">
             <input type="hidden" name="todo" value="<%= todo.id %>">
-            <input type="submit" name="assign" value="Assign">
+              <a class="waves-effect waves-light btn">  <input type="submit" name="assign" value="Assign"></a>
             </form>
 
-            <td><%= link_to 'Edit', edit_todo_path(todo) ,{:style=>'color:#FFFFFF;font-size:30px;padding-top:5px;text-decoration: none;margin-right:75%;', :class => "css_class"}%></td>
-        <button class="button button3">  <td><%= link_to 'Delete', todo, method: :delete, data: { confirm: 'Are you sure?' } %></td></button><br>
+          <i class="material-icons">mode_edit  </i><td><%= link_to 'Edit', edit_todo_path(todo) ,{:style=>'color:#FFFFFF;font-size:30px;padding-top:5px;text-decoration: none;margin-right:75%;', :class => "css_class"}%></td>
+          <button class="button button3">  <td><i class="material-icons">delete  </i><%= link_to 'Delete', todo, method: :delete, data: { confirm: 'Are you sure?' } %></td></button><br>
    </div>
 </div>
 
     <% end %>
-    <button onclick="myFunction()" name="button" id="movetotop"><h1>^</h1> </button>
+
+    <button onclick="myFunction()" name="button" id="movetotop">^</button>
 <!-- <div style="height:300px;width:100%;"></div> -->
 <br>
 

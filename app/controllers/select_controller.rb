@@ -34,9 +34,14 @@ def transfertask   #postmethod
     newtodo.content=todo.content
     newtodo.transferredto=fullname
     newtodo.transferredby=current_user.fullname
+    if !newuser
+      return redirect_to '/todos'
+
+    else
     newtodo.user_id=newuser.id
     newtodo.save
     todo.save
+  end
     return redirect_to '/todos'
 
 end
@@ -54,10 +59,15 @@ end
       newtodo.assignedto=fullname
       newtodo.assignedby=current_user.fullname
       newtodo.deadline=todo.deadline
+      if !newuser
+        return redirect_to '/todos'
+
+      else
       newtodo.user_id=newuser.id
 
       newtodo.save
       todo.save
+    end
       return redirect_to '/todos'
 
     end
